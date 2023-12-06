@@ -1,5 +1,7 @@
 # Homework 5
 
+**We will be taking 2 more of our 5 late days (we previously took 2). This assignment will be submitted by Friday 10:00 am**
+
 This repository some of the answers to homework. Answers which have been done in other repositories have been linked below.  This project is done by Nishant Aggarwal ([@n-aggarwal](https://github.com/n-aggarwal)) and Anan Afrida ([@ananafrida](https://github.com/ananafrida)). We distributed the work as follows after discussion: <br />
 <br />
 Nishant: 2,3,6 <br />
