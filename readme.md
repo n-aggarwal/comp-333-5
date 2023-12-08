@@ -5,10 +5,18 @@
 This repository some of the answers to homework. Answers which have been done in other repositories have been linked below.  This project is done by Nishant Aggarwal ([@n-aggarwal](https://github.com/n-aggarwal)) and Anan Afrida ([@ananafrida](https://github.com/ananafrida)). We distributed the work as follows after discussion: <br />
 <br />
 Nishant: 2,3,6 <br />
-Anan: 1,4,5
+Anan: 1,4,5 <br />
+
+The contribution of each team member is: <br />
+Anan: 50% <br />
+Nishant: 50% <br />
+
 
 Problem 1,2, and 6 can be found in this repository. <br />
 Problem 3 can be found in the [backend repo for homework 3](https://github.com/n-aggarwal/comp-333-3-backend). Instructions for setting up the enviornment for question 3 are given at the bottom of the readme of the linked repo.
+
+## Unit Test (Problem 1) - Anan
+This problem's code can be found under unit_testing.py file. Run the file as a regular python file using "python unit_testing.py"
 
 ## Pytest (Problem 2) - Nishant
 
@@ -71,8 +79,9 @@ testing framework for Javascript and React.
 5. Run your tests from within your frontend root folder with:
 
    ```bash
-   npm run test
+   npm test a
    ```
+   **Make sure to use the filter a to run all our test files.**
 
 ### Part 2: Login/Registration Unit Testing:
 1. For a, c, d: Place your unit test under root_directory --> src --> components --> login_component.test.js for login.
