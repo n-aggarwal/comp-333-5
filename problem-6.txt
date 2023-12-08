@@ -8,3 +8,86 @@ or the design of the program, and help give the developers a feel of how real us
 use their platform. By using generative AI, rather than actual users or pre written 
 scripts in Selenium for end-to-end testing, developers could potentially save a lot of 
 money, and  reduce time spent on testing.
+
+As an example: I gave chatGPT my unit-tests code (AllTests.php) and asked it to write an 
+end-to-end test simulating how a user may call various API's, and s stress test for my 
+application. The results are given below:
+
+End-to-End testing:
+    public function testCompleteUserScenario(): void
+    {
+        // Register a new user
+        $registrationResponse = $this->registerUser('test_user', '1234567890', '1234567890');
+        $this->assertTrue($registrationResponse['success']);
+
+        // Login with the registered user
+        $loginResponse = $this->loginUser('test_user', '1234567890');
+        $this->assertTrue($loginResponse['success']);
+
+        // Add a new song
+        $addSongResponse = $this->addNewSong('test_artist', 'test_song', '4');
+        $this->assertTrue($addSongResponse['success']);
+
+        // Get the list of songs
+        $songListResponse = $this->getSongList();
+        $this->assertEquals(200, $songListResponse['statusCode']);
+        $this->assertIsArray($songListResponse['data']);
+
+        // Update a song
+        // Note: Ensure 'id' corresponds to an existing song ID
+        $updateSongResponse = $this->updateSong(55, 'update_artist', 'update_song', '3');
+        $this->assertTrue($updateSongResponse['success']);
+
+        // Delete a song
+        // Note: Ensure 'id' corresponds to an existing song ID
+        $deleteSongResponse = $this->deleteSong(56);
+        $this->assertTrue($deleteSongResponse['success']);
+    }
+
+Stress-Testing:
+ public function testStressServerWithMultipleRequests(): void
+    {
+        $concurrentRequests = 50; // Number of concurrent requests to simulate
+        $totalRequests = 200; // Total number of requests to send
+
+        $responses = [];
+        $exceptionCount = 0;
+
+        // Initiate multiple asynchronous requests
+        $promises = [];
+        for ($i = 0; $i < $concurrentRequests; $i++) {
+            $promises[] = $this->client->getAsync('index.php'); // Change the endpoint accordingly
+        }
+
+        // Execute the requests asynchronously
+        try {
+            $responses = GuzzleHttp\Promise\settle($promises)->wait();
+        } catch (GuzzleHttp\Exception\RequestException $e) {
+            $exceptionCount++;
+        }
+
+        // Evaluate the responses and exceptions
+        $successfulResponses = 0;
+        foreach ($responses as $response) {
+            if ($response['state'] === 'fulfilled' && $response['value']->getStatusCode() === 200) {
+                $successfulResponses++;
+            }
+        }
+
+        // Check if the number of successful responses meets expectations
+        $this->assertGreaterThanOrEqual(
+            $totalRequests - $exceptionCount,
+            $successfulResponses,
+            "Failed to receive expected successful responses."
+        );
+    }
+
+Although these responses are pretty good, there is still a lot of room for improvement.
+If you look through the stress test, I still have to manually change the endpoint, 
+and it isn't testing multiple endpoints at the same time. Also with the end-to-end
+testing, it is very rigid taking values from my previous test, and not adapting. This
+could probably be improved by the use of specialized AI technologies designed for testing.
+
+I also trieds using an extenstion in VScode called "Software Testing AI" through which
+highlighting a function should prodcue tests for it but unfortunaltely it did not 
+support php at the moment. 
