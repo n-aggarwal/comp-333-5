@@ -5,7 +5,12 @@
 This repository some of the answers to homework. Answers which have been done in other repositories have been linked below.  This project is done by Nishant Aggarwal ([@n-aggarwal](https://github.com/n-aggarwal)) and Anan Afrida ([@ananafrida](https://github.com/ananafrida)). We distributed the work as follows after discussion: <br />
 <br />
 Nishant: 2,3,6 <br />
-Anan: 1,4,5
+Anan: 1,4,5 <br />
+
+The contribution of each team member is: <br />
+Anan: 50% <br />
+Nishant: 50% <br />
+
 
 Problem 1,2, and 6 can be found in this repository. <br />
 Problem 3 can be found in the [backend repo for homework 3](https://github.com/n-aggarwal/comp-333-3-backend). Instructions for setting up the enviornment for question 3 are given at the bottom of the readme of the linked repo.
