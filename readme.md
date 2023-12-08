@@ -89,6 +89,21 @@ testing framework for Javascript and React.
 3. Since we didn't have a navigation link under login or registration, we covered (b) under the homeView (please refer to the next point).
 4. For b: Place your unit tests under root_directory --> src --> views --> homeView.test.js for navigation link testing
 
+### Troubleshooting
+
+If you are getting a "watchman" error, try doing the following:
+```bash
+brew uninstall watchman
+brew install watchman
+watchman shutdown-server #(just in case it's running)
+watchman watch-del-all
+```
+
+At this point watchman should ask for permission to your directory; allow. Now run
+```bash
+npm run test
+a
+```
 
 ## GitHub CI (Problem 5) - Anan
 You can find our yaml file under the github actions tab.
