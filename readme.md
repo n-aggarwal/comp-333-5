@@ -10,6 +10,9 @@ Anan: 1,4,5
 Problem 1,2, and 6 can be found in this repository. <br />
 Problem 3 can be found in the [backend repo for homework 3](https://github.com/n-aggarwal/comp-333-3-backend). Instructions for setting up the enviornment for question 3 are given at the bottom of the readme of the linked repo.
 
+## Unit Test (Problem 1) - Anan
+This problem's code can be found under unit_testing.py file. Run the file as a regular python file using "python unit_testing.py"
+
 ## Pytest (Problem 2) - Nishant
 
 This section of the readme provides instructions on how to run the "pytest" tests.
@@ -71,8 +74,9 @@ testing framework for Javascript and React.
 5. Run your tests from within your frontend root folder with:
 
    ```bash
-   npm run test
+   npm test a
    ```
+   **Make sure to use the filter a to run all our test files.**
 
 ### Part 2: Login/Registration Unit Testing:
 1. For a, c, d: Place your unit test under root_directory --> src --> components --> login_component.test.js for login.
